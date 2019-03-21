@@ -4,21 +4,18 @@ import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 
 import {Bar} from 'react-chartjs-2';
-import '../App.css'
+import '../index.css'
 
-import MetroData from '../data/metro.json'
 
 class MetroChart extends Component {
 
     constructor(props) {
         super(props);
-        this.cities = MetroData.map(element => element.city);
-        this.operational_kms = MetroData.map(element => element.operational_kms);
-        this.under_construction_kms = MetroData.map(element => element.under_construction_kms);
-        this.planned_kms = MetroData.map(element => element.planned_kms)
-        
-        console.log(MetroData);
-        console.log(this.cities);
+
+        this.cities = this.props.data.map(element => element.city);
+        this.operational_kms = this.props.data.map(element => element.operational_kms);
+        this.under_construction_kms = this.props.data.map(element => element.under_construction_kms);
+        this.planned_kms = this.props.data.map(element => element.planned_kms)
     }
 
     render() {
@@ -50,7 +47,29 @@ class MetroChart extends Component {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
+                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontSize : 16,
+                    },
+                    scaleLabel : {
+                        labelString: "System Length (km)",
+                        display : true,
+                        lineHeight : 2.4,
+                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontSize : 20,
+                    },
+                    gridLines : {
+                        zeroLineColor : 'rgba(18, 201, 168, 1)',
+                        zeroLineWidth : 2,
                     }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontSize : 16,
+                    },
+                    gridLines : {
+                        zeroLineColor : 'rgba(18, 201, 168, 1)',
+                    },
                 }]
             },
             maintainAspectRation : true,
@@ -58,13 +77,16 @@ class MetroChart extends Component {
                 position : 'bottom',
                 labels : {
                     fontSize : 18,
+                    fontColor : 'rgba(18, 201, 168, 1)',
                 }
             },
             title : {
                 position : 'top',
-                text : 'Metro System Length in Major Cities (kms)',
-                fontSize : 18,
+                text : this.props.title,
+                fontSize : 28,
                 display : true,
+                fontColor : 'rgba(18, 201, 168, 1)',
+                fontFamily : 'Helvetica',
             },
         }
       

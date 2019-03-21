@@ -31,7 +31,7 @@
     },
     {
         "city" : "Mumbai",
-        "operational_kms" : 1.4,
+        "operational_kms" : 11.4,
         "under_construction_kms" : 163,
         "planned_kms" : 209
     }

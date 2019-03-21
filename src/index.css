@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.metro-chart {
+  width : 90%;
+  margin:0 auto;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
