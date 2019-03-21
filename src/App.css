@@ -22,7 +22,14 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.metro-chart {
+  width : 90%;
+  margin:0 auto;
+  text-align: center;
 }
+
+.page-title {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
