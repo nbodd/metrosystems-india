@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/metrosystems-india/precache-manifest.4fb778234daf53335f7c4b43e527affd.js"
+  "/metrosystems-india/precache-manifest.3373b63f5a80b9a3e28cbab9c8bc1b6a.js"
 );
 
 workbox.clientsClaim();
