@@ -14,10 +14,13 @@ class App extends Component {
     render() {
         return <Container fluid>
             <div class='page-title'>
-                <Header as='h1' textAlign='center' size='huge'>Metro Systems In India</Header>
+                <Header as='h1' textAlign='center' color='teal' size='huge'>Metro Systems In India</Header>
             </div>
-            <MetroChart data={MetroData} title='Tier I Cities'/>
-            <MetroChart data={MetroCitiesData} title='Tier II Cities'/>
+            <MetroChart data={MetroData} themecolor='rgba(30,128,128, 1)' title='Tier I Cities'/>
+            <MetroChart data={MetroCitiesData} themecolor='rgba(128, 98, 98, 1)' title='Tier II Cities'/>
+            <div class='page-footer'>
+                <Header textAlign='center' color='brown' size='tiny'>Last Updated on March 21, 2019</Header>
+            </div>
         </Container>
     }
 }

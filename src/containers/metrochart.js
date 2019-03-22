@@ -47,28 +47,28 @@ class MetroChart extends Component {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontColor : this.props.themecolor,
                         fontSize : 16,
                     },
                     scaleLabel : {
                         labelString: "System Length (km)",
                         display : true,
                         lineHeight : 2.4,
-                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontColor : this.props.themecolor,
                         fontSize : 20,
                     },
                     gridLines : {
-                        zeroLineColor : 'rgba(18, 201, 168, 1)',
+                        zeroLineColor : this.props.themecolor,
                         zeroLineWidth : 2,
                     }
                 }],
                 xAxes: [{
                     ticks: {
-                        fontColor : 'rgba(18, 201, 168, 1)',
+                        fontColor : this.props.themecolor,
                         fontSize : 16,
                     },
                     gridLines : {
-                        zeroLineColor : 'rgba(18, 201, 168, 1)',
+                        zeroLineColor : this.props.themecolor,
                     },
                 }]
             },
@@ -77,15 +77,15 @@ class MetroChart extends Component {
                 position : 'bottom',
                 labels : {
                     fontSize : 18,
-                    fontColor : 'rgba(18, 201, 168, 1)',
+                    fontColor : this.props.themecolor,
                 }
             },
             title : {
                 position : 'top',
                 text : this.props.title,
-                fontSize : 28,
+                fontSize : 20,
                 display : true,
-                fontColor : 'rgba(18, 201, 168, 1)',
+                fontColor : this.props.themecolor,
                 fontFamily : 'Helvetica',
             },
         }
