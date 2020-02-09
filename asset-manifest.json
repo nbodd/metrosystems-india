@@ -1,17 +1,27 @@
 {
-  "main.css": "/metrosystems-india/static/css/main.e6f3f0f5.chunk.css",
-  "main.js": "/metrosystems-india/static/js/main.0ff0a9b5.chunk.js",
-  "main.js.map": "/metrosystems-india/static/js/main.0ff0a9b5.chunk.js.map",
-  "runtime~main.js": "/metrosystems-india/static/js/runtime~main.1f34492a.js",
-  "runtime~main.js.map": "/metrosystems-india/static/js/runtime~main.1f34492a.js.map",
-  "static/css/2.0a35868f.chunk.css": "/metrosystems-india/static/css/2.0a35868f.chunk.css",
-  "static/js/2.7a9c3f6c.chunk.js": "/metrosystems-india/static/js/2.7a9c3f6c.chunk.js",
-  "static/js/2.7a9c3f6c.chunk.js.map": "/metrosystems-india/static/js/2.7a9c3f6c.chunk.js.map",
-  "index.html": "/metrosystems-india/index.html",
-  "precache-manifest.3373b63f5a80b9a3e28cbab9c8bc1b6a.js": "/metrosystems-india/precache-manifest.3373b63f5a80b9a3e28cbab9c8bc1b6a.js",
-  "service-worker.js": "/metrosystems-india/service-worker.js",
-  "static/css/2.0a35868f.chunk.css.map": "/metrosystems-india/static/css/2.0a35868f.chunk.css.map",
-  "static/css/main.e6f3f0f5.chunk.css.map": "/metrosystems-india/static/css/main.e6f3f0f5.chunk.css.map",
-  "static/media/semantic.min.css": "/metrosystems-india/static/media/outline-icons.ef60a4f6.woff",
-  "static/media/logo.svg": "/metrosystems-india/static/media/logo.5d5d9eef.svg"
+  "files": {
+    "main.css": "/metrosystems-india/static/css/main.609922c2.chunk.css",
+    "main.js": "/metrosystems-india/static/js/main.ee4f793d.chunk.js",
+    "main.js.map": "/metrosystems-india/static/js/main.ee4f793d.chunk.js.map",
+    "runtime-main.js": "/metrosystems-india/static/js/runtime-main.06c49478.js",
+    "runtime-main.js.map": "/metrosystems-india/static/js/runtime-main.06c49478.js.map",
+    "static/css/2.77530970.chunk.css": "/metrosystems-india/static/css/2.77530970.chunk.css",
+    "static/js/2.b72d36b0.chunk.js": "/metrosystems-india/static/js/2.b72d36b0.chunk.js",
+    "static/js/2.b72d36b0.chunk.js.map": "/metrosystems-india/static/js/2.b72d36b0.chunk.js.map",
+    "index.html": "/metrosystems-india/index.html",
+    "precache-manifest.d0589bb545e975cc5a07fd2b26c22f48.js": "/metrosystems-india/precache-manifest.d0589bb545e975cc5a07fd2b26c22f48.js",
+    "service-worker.js": "/metrosystems-india/service-worker.js",
+    "static/css/2.77530970.chunk.css.map": "/metrosystems-india/static/css/2.77530970.chunk.css.map",
+    "static/css/main.609922c2.chunk.css.map": "/metrosystems-india/static/css/main.609922c2.chunk.css.map",
+    "static/js/2.b72d36b0.chunk.js.LICENSE.txt": "/metrosystems-india/static/js/2.b72d36b0.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/metrosystems-india/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/logo.svg": "/metrosystems-india/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06c49478.js",
+    "static/css/2.77530970.chunk.css",
+    "static/js/2.b72d36b0.chunk.js",
+    "static/css/main.609922c2.chunk.css",
+    "static/js/main.ee4f793d.chunk.js"
+  ]
 }
