@@ -1,14 +1,26 @@
 [
     {
         "city" : "Delhi",
-        "operational_kms" : 373,
-        "under_construction_kms" : 9.91,
-        "planned_kms" : 61.66
+        "operational_kms" : 391,
+        "under_construction_kms" : 30,
+        "planned_kms" : 171.83
+    },
+    {
+        "city" : "Mumbai",
+        "operational_kms" : 11.4,
+        "under_construction_kms" : 163,
+        "planned_kms" : 209
+    },
+    {
+        "city" : "Banglore",
+        "operational_kms" : 42.3,
+        "under_construction_kms" : 34.37,
+        "planned_kms" : 57.07
     },
     {
         "city" : "Hyderabad",
-        "operational_kms" : 56.5,
-        "under_construction_kms" : 15.5,
+        "operational_kms" : 69,
+        "under_construction_kms" : 3,
         "planned_kms" : 0
     },
     {
@@ -18,21 +30,9 @@
         "planned_kms" : 118.4
     },
     {
-        "city" : "Banglore",
-        "operational_kms" : 42.3,
-        "under_construction_kms" : 34.37,
-        "planned_kms" : 57.07
-    },
-    {
         "city" : "Kolkata",
         "operational_kms" : 27.2,
         "under_construction_kms" : 113.4,
         "planned_kms" : 0
-    },
-    {
-        "city" : "Mumbai",
-        "operational_kms" : 11.4,
-        "under_construction_kms" : 163,
-        "planned_kms" : 209
     }
 ]

@@ -13,15 +13,21 @@
     },
     {
         "city" : "Nagpur",
-        "operational_kms" : 13.5,
-        "under_construction_kms" : 29.5,
+        "operational_kms" : 24.5,
+        "under_construction_kms" : 15.5,
         "planned_kms" : 93
     },
     {
         "city" : "Kochi",
-        "operational_kms" : 18.4,
+        "operational_kms" : 23.8,
         "under_construction_kms" : 25.6,
-        "planned_kms" : 56.7
+        "planned_kms" : 19.9
+    },
+    {
+        "city" : "Pune (2022)",
+        "operational_kms" : 0,
+        "under_construction_kms" : 54.58,
+        "planned_kms" : 0
     },
     {
         "city" : "Jaipur",

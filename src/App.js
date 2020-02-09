@@ -19,7 +19,7 @@ class App extends Component {
             <MetroChart data={MetroData} themecolor='rgba(30,128,128, 1)' title='Tier I Cities'/>
             <MetroChart data={MetroCitiesData} themecolor='rgba(128, 98, 98, 1)' title='Tier II Cities'/>
             <div class='page-footer'>
-                <Header textAlign='center' color='brown' size='tiny'>Last Updated on March 21, 2019</Header>
+                <Header textAlign='center' color='brown' size='tiny'>Data collected from Wikipedia, Last Updated on Feb 8, 2020</Header>
             </div>
         </Container>
     }
