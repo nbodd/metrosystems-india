@@ -15,8 +15,14 @@ import {
   ResponsiveContainer,
   ComposedChart,
 } from 'recharts';
+import { Box, Paper, Typography, FormControl, Button, ButtonGroup, Card, CardContent, Grid, Link, Chip, LinearProgress, Autocomplete, TextField } from '@mui/material';
+import { CheckCircle, Settings, Checklist } from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
 
-export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
+export default function AnalyticsCharts({ tierOneData, tierTwoData, darkMode }) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+  
   const [chartType, setChartType] = useState('stacked');
   const [selectedCity, setSelectedCity] = useState('All');
 
@@ -33,17 +39,40 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
     { name: 'Planned', value: totalPlanned, fill: '#8b5cf6', percentage: ((totalPlanned / (totalOperational + totalUnderConstruction + totalPlanned)) * 100).toFixed(1) },
   ];
 
+  const cityOptions = [
+    'All',
+    ...allData
+      .map(city => city.city)
+      .filter((city, index, self) => self.indexOf(city) === index)
+      .sort(),
+  ];
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 border border-gray-200 rounded shadow-lg">
-          <p className="text-sm font-semibold text-gray-800">{payload[0].payload.city}</p>
+        <Paper
+          elevation={4}
+          sx={{
+            p: 1.5,
+            bgcolor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'divider',
+            borderRadius: 1,
+          }}
+        >
+          <Typography variant='body2' sx={{ fontWeight: 600, mb: 0.5 }}>
+            {payload[0].payload.city}
+          </Typography>
           {payload.map((entry, index) => (
-            <p key={index} style={{ color: entry.color }} className="text-sm">
+            <Typography
+              key={index}
+              variant='caption'
+              sx={{ display: 'block', color: entry.color, fontWeight: 500 }}
+            >
               {entry.name}: {entry.value.toFixed(1)} km
-            </p>
+            </Typography>
           ))}
-        </div>
+        </Paper>
       );
     }
     return null;
@@ -52,22 +81,47 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
   const PieTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 border border-gray-200 rounded shadow-lg">
-          <p className="text-sm font-semibold text-gray-800">{payload[0].name}</p>
-          <p className="text-sm text-gray-600">{payload[0].value.toFixed(0)} km</p>
-        </div>
+        <Paper
+          elevation={4}
+          sx={{
+            p: 1.5,
+            bgcolor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'divider',
+            borderRadius: 1,
+          }}
+        >
+          <Typography variant='body2' sx={{ fontWeight: 600, mb: 0.5 }}>
+            {payload[0].name}
+          </Typography>
+          <Typography variant='caption' sx={{ fontWeight: 500 }}>
+            {payload[0].value.toFixed(0)} km
+          </Typography>
+        </Paper>
       );
     }
     return null;
   };
 
   return (
-    <div className="space-y-8">
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 3, md: 4 } }}>
       {/* Status Overview - Pie Chart */}
-      <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
-        <h3 className="text-2xl font-bold text-slate-900 mb-6">Metro Network Status Distribution</h3>
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="flex-1">
+      <Paper
+        elevation={isDark ? 4 : 2}
+        sx={{
+          p: { xs: 2, md: 4 },
+          borderRadius: 2,
+          background: isDark
+            ? 'linear-gradient(135deg, #1e3a3a 0%, #0d2b2b 100%)'
+            : 'linear-gradient(135deg, #f0f9ff 0%, #e7f5ff 100%)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Typography variant='h5' sx={{ fontWeight: 700, mb: 3, color: 'text.primary', letterSpacing: '-0.01em' }}>
+          📊 Metro Network Status Distribution
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, gap: { xs: 3, md: 4 }, alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ flex: 1, minHeight: 300 }}>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -87,119 +141,214 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
                 <Tooltip content={<PieTooltip />} />
               </PieChart>
             </ResponsiveContainer>
-          </div>
-          <div className="flex-1 space-y-3">
+          </Box>
+          <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
             {statusData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-lg" style={{ backgroundColor: item.fill }}></div>
-                  <span className="text-sm font-semibold text-slate-700">{item.name}</span>
-                </div>
-                <div className="text-right">
-                  <p className="text-lg font-bold text-slate-900">{item.value.toFixed(0)}</p>
-                  <p className="text-xs text-slate-500">km ({item.percentage}%)</p>
-                </div>
-              </div>
+              <Card
+                key={idx}
+                sx={{
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'translateX(4px)',
+                    boxShadow: isDark ? 6 : 4,
+                  },
+                }}
+              >
+                <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ width: 12, height: 12, borderRadius: 1, backgroundColor: item.fill }} />
+                    <Typography variant='body2' sx={{ fontWeight: 600, color: 'text.primary' }}>
+                      {item.name}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ textAlign: 'right' }}>
+                    <Typography variant='subtitle2' sx={{ fontWeight: 700, color: 'text.primary' }}>
+                      {item.value.toFixed(0)} km
+                    </Typography>
+                    <Typography variant='caption' sx={{ color: 'text.secondary' }}>
+                      ({item.percentage}%)
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
             ))}
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Paper>
 
       {/* Tier I Cities - Stacked/Grouped Bar Chart */}
-      <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="text-2xl font-bold text-slate-900">Tier I Cities - Metro Network</h3>
-            <p className="text-sm text-slate-500 mt-1">Cities with operational metro network length of 60 km or more</p>
-          </div>
-          <div className="flex gap-2">
-            <button
+      <Paper
+        elevation={isDark ? 4 : 2}
+        sx={{
+          p: { xs: 2, md: 4 },
+          borderRadius: 2,
+          background: isDark
+            ? 'linear-gradient(135deg, #1e293b 0%, #1a1f35 100%)'
+            : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 3, flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+          <Box>
+            <Typography variant='h5' sx={{ fontWeight: 700, color: 'text.primary', letterSpacing: '-0.01em' }}>
+              🏙️ Tier I Cities - Metro Network
+            </Typography>
+            <Typography variant='caption' sx={{ color: 'text.secondary', mt: 0.5, display: 'block', fontWeight: 500 }}>
+              Cities with operational metro network length of 60 km or more
+            </Typography>
+          </Box>
+          <ButtonGroup
+            variant='outlined'
+            size='small'
+            sx={{
+              bgcolor: 'background.paper',
+              border: '1px solid',
+              borderColor: 'divider',
+              borderRadius: 1,
+            }}
+          >
+            <Button
               onClick={() => setChartType('stacked')}
-              className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
-                chartType === 'stacked'
-                  ? 'bg-slate-900 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
+              variant={chartType === 'stacked' ? 'contained' : 'outlined'}
+              sx={{
+                fontWeight: 600,
+                textTransform: 'none',
+                ...(chartType === 'stacked' && {
+                  bgcolor: 'primary.main',
+                  color: 'white',
+                  '&:hover': { bgcolor: 'primary.dark' },
+                }),
+              }}
             >
               Stacked
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setChartType('grouped')}
-              className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
-                chartType === 'grouped'
-                  ? 'bg-slate-900 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
+              variant={chartType === 'grouped' ? 'contained' : 'outlined'}
+              sx={{
+                fontWeight: 600,
+                textTransform: 'none',
+                ...(chartType === 'grouped' && {
+                  bgcolor: 'primary.main',
+                  color: 'white',
+                  '&:hover': { bgcolor: 'primary.dark' },
+                }),
+              }}
             >
               Grouped
-            </button>
-          </div>
-        </div>
+            </Button>
+          </ButtonGroup>
+        </Box>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={tierOneData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
             <XAxis
               dataKey="city"
               angle={-45}
               textAnchor="end"
               height={100}
-              tick={{ fontSize: 12, fill: '#64748b' }}
+              tick={{ fontSize: 12, fill: isDark ? '#cbd5e1' : '#64748b' }}
             />
-            <YAxis label={{ value: 'Distance (km)', angle: -90, position: 'insideLeft', fill: '#64748b' }} tick={{ fill: '#64748b' }} />
+            <YAxis
+              label={{ value: 'Distance (km)', angle: -90, position: 'insideLeft', fill: isDark ? '#cbd5e1' : '#64748b' }}
+              tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            />
             <Tooltip content={<CustomTooltip />} />
-            <Legend wrapperStyle={{ paddingTop: '20px' }} />
+            <Legend wrapperStyle={{ paddingTop: '20px', color: isDark ? '#cbd5e1' : '#64748b' }} />
             <Bar dataKey="operational_kms" stackId={chartType === 'stacked' ? 'a' : undefined} fill="#3b82f6" name="Operational" radius={[4, 4, 0, 0]} />
             <Bar dataKey="under_construction_kms" stackId={chartType === 'stacked' ? 'a' : undefined} fill="#f59e0b" name="Under Construction" radius={[4, 4, 0, 0]} />
             <Bar dataKey="planned_kms" stackId={chartType === 'stacked' ? 'a' : undefined} fill="#8b5cf6" name="Planned" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
-      </div>
+      </Paper>
 
       {/* Tier II Cities - Chart */}
-      <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
-        <h3 className="text-2xl font-bold text-slate-900 mb-2">Tier II Cities - Metro Network</h3>
-        <p className="text-sm text-slate-500 mb-6">Cities with operational metro network length less than 60 km</p>
+      <Paper
+        elevation={isDark ? 4 : 2}
+        sx={{
+          p: { xs: 2, md: 4 },
+          borderRadius: 2,
+          background: isDark
+            ? 'linear-gradient(135deg, #1e293b 0%, #1a1f35 100%)'
+            : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Typography variant='h5' sx={{ fontWeight: 700, mb: 0.5, color: 'text.primary', letterSpacing: '-0.01em' }}>
+          🌆 Tier II Cities - Metro Network
+        </Typography>
+        <Typography variant='caption' sx={{ color: 'text.secondary', display: 'block', mb: 3, fontWeight: 500 }}>
+          Cities with operational metro network length less than 60 km
+        </Typography>
         <ResponsiveContainer width="100%" height={350}>
           <ComposedChart data={tierTwoData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
             <XAxis
               dataKey="city"
               angle={-45}
               textAnchor="end"
               height={100}
-              tick={{ fontSize: 12, fill: '#64748b' }}
+              tick={{ fontSize: 12, fill: isDark ? '#cbd5e1' : '#64748b' }}
             />
-            <YAxis label={{ value: 'Distance (km)', angle: -90, position: 'insideLeft', fill: '#64748b' }} tick={{ fill: '#64748b' }} />
+            <YAxis
+              label={{ value: 'Distance (km)', angle: -90, position: 'insideLeft', fill: isDark ? '#cbd5e1' : '#64748b' }}
+              tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            />
             <Tooltip content={<CustomTooltip />} />
-            <Legend wrapperStyle={{ paddingTop: '20px' }} />
+            <Legend wrapperStyle={{ paddingTop: '20px', color: isDark ? '#cbd5e1' : '#64748b' }} />
             <Bar dataKey="operational_kms" fill="#3b82f6" name="Operational" radius={[4, 4, 0, 0]} />
             <Bar dataKey="under_construction_kms" fill="#f59e0b" name="Under Construction" radius={[4, 4, 0, 0]} />
             <Bar dataKey="planned_kms" fill="#8b5cf6" name="Planned" radius={[4, 4, 0, 0]} />
           </ComposedChart>
         </ResponsiveContainer>
-      </div>
+      </Paper>
 
       {/* Total Distance by City */}
-      <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
-        <h3 className="text-2xl font-bold text-slate-900 mb-6">Total Network Length by City</h3>
-        <div className="mb-6">
-          <label htmlFor="city-filter" className="block text-sm font-medium text-slate-700 mb-2">Filter by City</label>
-          <select
-            id="city-filter"
+      <Paper
+        elevation={isDark ? 4 : 2}
+        sx={{
+          p: { xs: 2, md: 4 },
+          borderRadius: 2,
+          background: isDark
+            ? 'linear-gradient(135deg, #1e293b 0%, #1a1f35 100%)'
+            : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Typography variant='h5' sx={{ fontWeight: 700, mb: 3, color: 'text.primary', letterSpacing: '-0.01em' }}>
+          🔍 Total Network Length by City
+        </Typography>
+        <Box sx={{ mb: 4, maxWidth: 300 }}>
+          <Typography variant='caption' sx={{ color: 'text.secondary', mb: 1.5, display: 'block', fontWeight: 700 }}>
+            FILTER BY CITY
+          </Typography>
+          <Autocomplete
+            options={cityOptions}
             value={selectedCity}
-            onChange={(e) => setSelectedCity(e.target.value)}
-            className="block w-full max-w-xs px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-slate-500 focus:border-slate-500"
-          >
-            <option value="All">All Cities</option>
-            {allData
-              .map(city => city.city)
-              .sort()
-              .map(city => (
-                <option key={city} value={city}>{city}</option>
-              ))}
-          </select>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            onChange={(event, newValue) => setSelectedCity(newValue || 'All')}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                placeholder='Search or select a city...'
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            )}
+            freeSolo={false}
+            disableClearable={false}
+            noOptionsText='No cities found'
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                bgcolor: 'background.paper',
+                transition: 'all 0.2s ease',
+              },
+            }}
+          />
+        </Box>
+        <Grid container spacing={2}>
           {filteredData
             .map(city => {
               const total = city.operational_kms + city.under_construction_kms + city.planned_kms;
@@ -209,43 +358,134 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
             .sort((a, b) => b.sortKey - a.sortKey)
             .slice(0, selectedCity === 'All' ? 8 : filteredData.length)
             .map((city, idx) => (
-              <div key={idx} className="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
-                <div className="flex justify-between items-start mb-3">
-                  <div className="flex items-center gap-2">
-                    {city.wikipedia_link ? (
-                      <a
-                        href={city.wikipedia_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-semibold text-slate-900 hover:text-slate-600 transition-colors"
-                        title="View on Wikipedia"
-                      >
-                        {city.city}
-                      </a>
-                    ) : (
-                      <span className="font-semibold text-slate-900">{city.city}</span>
-                    )}
-                  </div>
-                  <span className="text-lg font-bold text-slate-900">{city.total.toFixed(1)} km</span>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs p-2 bg-white rounded border border-slate-200">
-                    <span className="flex items-center gap-2"><span className="text-lg">✓</span><span className="text-slate-700 font-medium">Operational</span></span>
-                    <span className="font-bold text-blue-600">{city.operational_kms.toFixed(1)} km</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs p-2 bg-white rounded border border-slate-200">
-                    <span className="flex items-center gap-2"><span className="text-lg">⚙</span><span className="text-slate-700 font-medium">Under Construction</span></span>
-                    <span className="font-bold text-amber-600">{city.under_construction_kms.toFixed(1)} km</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs p-2 bg-white rounded border border-slate-200">
-                    <span className="flex items-center gap-2"><span className="text-lg">📋</span><span className="text-slate-700 font-medium">Planned</span></span>
-                    <span className="font-bold text-purple-600">{city.planned_kms.toFixed(1)} km</span>
-                  </div>
-                </div>
-              </div>
+              <Grid item xs={12} md={6} key={idx}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: isDark ? 6 : 4,
+                    },
+                  }}
+                >
+                  <CardContent sx={{ pb: { xs: 1.5, md: 2 } }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+                      <Box sx={{ flex: 1, pr: 1 }}>
+                        {city.wikipedia_link ? (
+                          <Link
+                            href={city.wikipedia_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{
+                              fontWeight: 700,
+                              color: 'primary.main',
+                              textDecoration: 'none',
+                              transition: 'color 0.2s ease',
+                              '&:hover': {
+                                textDecoration: 'underline',
+                                color: 'primary.light',
+                              },
+                            }}
+                          >
+                            {city.city}
+                          </Link>
+                        ) : (
+                          <Typography variant='subtitle1' sx={{ fontWeight: 700, color: 'text.primary' }}>
+                            {city.city}
+                          </Typography>
+                        )}
+                      </Box>
+                      <Chip
+                        label={`${city.total.toFixed(1)} km`}
+                        sx={{
+                          fontWeight: 700,
+                          fontSize: '0.85rem',
+                          bgcolor: isDark ? 'rgba(30, 58, 138, 0.3)' : '#e0f2fe',
+                          color: isDark ? '#93c5fd' : '#0c4a6e',
+                          flex: '0 0 auto',
+                        }}
+                      />
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                      <Box>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.75 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <CheckCircle sx={{ fontSize: 16, color: '#3b82f6' }} />
+                            <Typography variant='caption' sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                              Operational
+                            </Typography>
+                          </Box>
+                          <Typography variant='body2' sx={{ fontWeight: 700, color: '#3b82f6' }}>
+                            {city.operational_kms.toFixed(1)} km
+                          </Typography>
+                        </Box>
+                        <LinearProgress
+                          variant="determinate"
+                          value={(city.operational_kms / city.total) * 100}
+                          sx={{
+                            height: 6,
+                            borderRadius: 3,
+                            bgcolor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#e0f2fe',
+                            '& .MuiLinearProgress-bar': { bgcolor: '#3b82f6', borderRadius: 3 },
+                          }}
+                        />
+                      </Box>
+
+                      <Box>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.75 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Settings sx={{ fontSize: 16, color: '#f59e0b' }} />
+                            <Typography variant='caption' sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                              Under Constr.
+                            </Typography>
+                          </Box>
+                          <Typography variant='body2' sx={{ fontWeight: 700, color: '#f59e0b' }}>
+                            {city.under_construction_kms.toFixed(1)} km
+                          </Typography>
+                        </Box>
+                        <LinearProgress
+                          variant="determinate"
+                          value={(city.under_construction_kms / city.total) * 100}
+                          sx={{
+                            height: 6,
+                            borderRadius: 3,
+                            bgcolor: isDark ? 'rgba(245, 158, 11, 0.2)' : '#fef3c7',
+                            '& .MuiLinearProgress-bar': { bgcolor: '#f59e0b', borderRadius: 3 },
+                          }}
+                        />
+                      </Box>
+
+                      <Box>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.75 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Checklist sx={{ fontSize: 16, color: '#8b5cf6' }} />
+                            <Typography variant='caption' sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                              Planned
+                            </Typography>
+                          </Box>
+                          <Typography variant='body2' sx={{ fontWeight: 700, color: '#8b5cf6' }}>
+                            {city.planned_kms.toFixed(1)} km
+                          </Typography>
+                        </Box>
+                        <LinearProgress
+                          variant="determinate"
+                          value={(city.planned_kms / city.total) * 100}
+                          sx={{
+                            height: 6,
+                            borderRadius: 3,
+                            bgcolor: isDark ? 'rgba(139, 92, 246, 0.2)' : '#f3e8ff',
+                            '& .MuiLinearProgress-bar': { bgcolor: '#8b5cf6', borderRadius: 3 },
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
             ))}
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Paper>
+    </Box>
   );
 }
