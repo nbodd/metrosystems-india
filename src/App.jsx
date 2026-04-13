@@ -9,6 +9,8 @@ import MetroCitiesData from './data/metro-cities.json';
 class App extends Component {
   render() {
     const allData = [...MetroData, ...MetroCitiesData];
+    const tierOneData = allData.filter(city => city.operational_kms >= 60 || city.city === 'Chennai');
+    const tierTwoData = allData.filter(city => city.operational_kms < 60 && city.city !== 'Chennai');
     const totalOperational = allData.reduce((sum, d) => sum + d.operational_kms, 0);
     const totalUnderConstruction = allData.reduce((sum, d) => sum + d.under_construction_kms, 0);
     const totalPlanned = allData.reduce((sum, d) => sum + d.planned_kms, 0);
@@ -59,14 +61,14 @@ class App extends Component {
             <MetricCard
               label='Cities Analyzed'
               value={citiesCount}
-              subtext={`${MetroData.length} Tier I, ${MetroCitiesData.length} Tier II`}
+              subtext={`${tierOneData.length} Tier I, ${tierTwoData.length} Tier II`}
               color='slate'
               icon='🏙'
             />
           </div>
 
           {/* Charts Section */}
-          <AnalyticsCharts tierOneData={MetroData} tierTwoData={MetroCitiesData} />
+          <AnalyticsCharts tierOneData={tierOneData} tierTwoData={tierTwoData} />
 
           {/* Data Source Footer */}
           <div className='mt-16 p-8 bg-slate-50 rounded-xl shadow-sm border border-slate-200'>

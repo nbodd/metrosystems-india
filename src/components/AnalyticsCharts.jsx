@@ -18,9 +18,11 @@ import {
 
 export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
   const [chartType, setChartType] = useState('stacked');
+  const [selectedCity, setSelectedCity] = useState('All');
 
   // Combine all data for top performers
   const allData = [...tierOneData, ...tierTwoData];
+  const filteredData = selectedCity === 'All' ? allData : allData.filter(city => city.city === selectedCity);
   const totalOperational = allData.reduce((sum, d) => sum + d.operational_kms, 0);
   const totalUnderConstruction = allData.reduce((sum, d) => sum + d.under_construction_kms, 0);
   const totalPlanned = allData.reduce((sum, d) => sum + d.planned_kms, 0);
@@ -108,7 +110,7 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="text-2xl font-bold text-slate-900">Tier I Cities - Metro Network</h3>
-            <p className="text-sm text-slate-500 mt-1">Largest metropolitan areas with comprehensive metro systems</p>
+            <p className="text-sm text-slate-500 mt-1">Cities with operational metro network length of 60 km or more</p>
           </div>
           <div className="flex gap-2">
             <button
@@ -156,7 +158,7 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
       {/* Tier II Cities - Chart */}
       <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
         <h3 className="text-2xl font-bold text-slate-900 mb-2">Tier II Cities - Metro Network</h3>
-        <p className="text-sm text-slate-500 mb-6">Secondary metropolitan areas and emerging cities</p>
+        <p className="text-sm text-slate-500 mb-6">Cities with operational metro network length less than 60 km</p>
         <ResponsiveContainer width="100%" height={350}>
           <ComposedChart data={tierTwoData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -180,32 +182,48 @@ export default function AnalyticsCharts({ tierOneData, tierTwoData }) {
       {/* Total Distance by City */}
       <div className="bg-white rounded-lg shadow-sm p-8 border border-slate-200">
         <h3 className="text-2xl font-bold text-slate-900 mb-6">Total Network Length by City</h3>
+        <div className="mb-6">
+          <label htmlFor="city-filter" className="block text-sm font-medium text-slate-700 mb-2">Filter by City</label>
+          <select
+            id="city-filter"
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+            className="block w-full max-w-xs px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-slate-500 focus:border-slate-500"
+          >
+            <option value="All">All Cities</option>
+            {allData
+              .map(city => city.city)
+              .sort()
+              .map(city => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+          </select>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {allData
-            .map(city => ({
-              ...city,
-              total: city.operational_kms + city.under_construction_kms + city.planned_kms,
-            }))
-            .sort((a, b) => b.total - a.total)
-            .slice(0, 8)
+          {filteredData
+            .map(city => {
+              const total = city.operational_kms + city.under_construction_kms + city.planned_kms;
+              const sortKey = city.operational_kms + 2 * city.under_construction_kms + city.planned_kms;
+              return { ...city, total, sortKey };
+            })
+            .sort((a, b) => b.sortKey - a.sortKey)
+            .slice(0, selectedCity === 'All' ? 8 : filteredData.length)
             .map((city, idx) => (
               <div key={idx} className="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex items-center gap-2">
-                    <h4 className="font-semibold text-slate-900">{city.city}</h4>
-                    {city.wikipedia_link && (
+                    {city.wikipedia_link ? (
                       <a
                         href={city.wikipedia_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                        className="font-semibold text-slate-900 hover:text-slate-600 transition-colors"
                         title="View on Wikipedia"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clipRule="evenodd" />
-                          <path fillRule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clipRule="evenodd" />
-                        </svg>
+                        {city.city}
                       </a>
+                    ) : (
+                      <span className="font-semibold text-slate-900">{city.city}</span>
                     )}
                   </div>
                   <span className="text-lg font-bold text-slate-900">{city.total.toFixed(1)} km</span>

@@ -89,54 +89,5 @@
         "under_construction_kms" : 0,
         "planned_kms" : 27.41,
         "wikipedia_link" : "https://en.wikipedia.org/wiki/Gorakhpur_Metro"
-    },
-    {
-        "city" : "Varanasi",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Varanasi_Metro"
-    },
-    {
-        "city" : "Dehradun",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Dehradun_Metro"
-    },
-    {
-        "city" : "Ranchi",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Ranchi_Metro"
-    },
-    {
-        "city" : "Jabalpur",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jabalpur_Metro"
-    },
-    {
-        "city" : "Raipur",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Raipur_Metro"
-    },
-    {
-        "city" : "Nashik",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Nashik_Metro"
-    },
-    {
-        "city" : "Aurangabad",
-        "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Aurangabad_Metro"
     }
 ]
