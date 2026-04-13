@@ -1,44 +1,142 @@
 [
     {
-        "city" : "Lucknow",
-        "operational_kms" : 22.87,
-        "under_construction_kms" : 11.10,
-        "planned_kms" : 140
-    },
-    {
-        "city" : "Ahmedabad-Gandhinagar",
-        "operational_kms" : 6.5,
-        "under_construction_kms" : 40.03,
-        "planned_kms" : 28.26
-    },
-    {
-        "city" : "Nagpur",
-        "operational_kms" : 24.5,
-        "under_construction_kms" : 15.5,
-        "planned_kms" : 93
-    },
-    {
-        "city" : "Kochi",
-        "operational_kms" : 23.8,
-        "under_construction_kms" : 25.6,
-        "planned_kms" : 19.9
-    },
-    {
-        "city" : "Pune (2022)",
+        "city" : "Surat",
         "operational_kms" : 0,
-        "under_construction_kms" : 54.58,
-        "planned_kms" : 0
+        "under_construction_kms" : 41.93,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Surat_Metro"
     },
     {
-        "city" : "Jaipur",
-        "operational_kms" : 9.63,
-        "under_construction_kms" : 2.4,
-        "planned_kms" : 23.01
+        "city" : "Thane",
+        "operational_kms" : 0,
+        "under_construction_kms" : 29.5,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thane_Metro"
     },
     {
-        "city" : "Noida",
-        "operational_kms" : 29.7,
-        "under_construction_kms" : 0.0,
-        "planned_kms" : 15
+        "city" : "Bhubaneswar",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 26.024,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhubaneswar_Metro"
+    },
+    {
+        "city" : "Visakhapatnam",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 76.9,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Visakhapatnam_Metro"
+    },
+    {
+        "city" : "Vijayawada",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 75,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vijayawada_Metro"
+    },
+    {
+        "city" : "Rajkot",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 38,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rajkot_Metro"
+    },
+    {
+        "city" : "Vadodara",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 40,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vadodara_Metro"
+    },
+    {
+        "city" : "Kozhikode",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 44,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kozhikode_Metro"
+    },
+    {
+        "city" : "Thiruvananthapuram",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 42.1,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thiruvananthapuram_Metro"
+    },
+    {
+        "city" : "Prayagraj",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 44,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Prayagraj_Metro"
+    },
+    {
+        "city" : "Jammu",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 43.5,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jammu_Metro"
+    },
+    {
+        "city" : "Srinagar",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 25,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Srinagar_Metro"
+    },
+    {
+        "city" : "Gorakhpur",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 27.41,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Gorakhpur_Metro"
+    },
+    {
+        "city" : "Varanasi",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Varanasi_Metro"
+    },
+    {
+        "city" : "Dehradun",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Dehradun_Metro"
+    },
+    {
+        "city" : "Ranchi",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Ranchi_Metro"
+    },
+    {
+        "city" : "Jabalpur",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jabalpur_Metro"
+    },
+    {
+        "city" : "Raipur",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Raipur_Metro"
+    },
+    {
+        "city" : "Nashik",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Nashik_Metro"
+    },
+    {
+        "city" : "Aurangabad",
+        "operational_kms" : 0,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Aurangabad_Metro"
     }
 ]

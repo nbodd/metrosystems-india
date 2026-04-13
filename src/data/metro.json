@@ -1,38 +1,149 @@
 [
     {
         "city" : "Delhi",
-        "operational_kms" : 391,
-        "under_construction_kms" : 30,
-        "planned_kms" : 171.83
+        "operational_kms" : 374.4,
+        "under_construction_kms" : 65.2,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Delhi_Metro"
     },
     {
         "city" : "Mumbai",
-        "operational_kms" : 11.4,
-        "under_construction_kms" : 163,
-        "planned_kms" : 209
+        "operational_kms" : 90.95,
+        "under_construction_kms" : 132.45,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Mumbai_Metro"
     },
     {
-        "city" : "Banglore",
-        "operational_kms" : 42.3,
-        "under_construction_kms" : 34.37,
-        "planned_kms" : 57.07
+        "city" : "Bengaluru",
+        "operational_kms" : 96.1,
+        "under_construction_kms" : 79.44,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Namma_Metro"
     },
     {
         "city" : "Hyderabad",
-        "operational_kms" : 69,
-        "under_construction_kms" : 3,
-        "planned_kms" : 0
+        "operational_kms" : 67,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Hyderabad_Metro"
     },
     {
         "city" : "Chennai",
-        "operational_kms" : 45,
-        "under_construction_kms" : 8.52,
-        "planned_kms" : 118.4
+        "operational_kms" : 54.1,
+        "under_construction_kms" : 118.9,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Chennai_Metro"
     },
     {
         "city" : "Kolkata",
-        "operational_kms" : 27.2,
-        "under_construction_kms" : 113.4,
-        "planned_kms" : 0
+        "operational_kms" : 73.42,
+        "under_construction_kms" : 30.8,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kolkata_Metro"
+    },
+    {
+        "city" : "Ahmedabad",
+        "operational_kms" : 67.56,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Ahmedabad_Metro"
+    },
+    {
+        "city" : "Pune",
+        "operational_kms" : 31.25,
+        "under_construction_kms" : 79.56,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Pune_Metro"
+    },
+    {
+        "city" : "Jaipur",
+        "operational_kms" : 11.98,
+        "under_construction_kms" : 2.85,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jaipur_Metro"
+    },
+    {
+        "city" : "Lucknow",
+        "operational_kms" : 22.9,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Lucknow_Metro"
+    },
+    {
+        "city" : "Kochi",
+        "operational_kms" : 27.96,
+        "under_construction_kms" : 11.2,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kochi_Metro"
+    },
+    {
+        "city" : "Nagpur",
+        "operational_kms" : 38.22,
+        "under_construction_kms" : 43,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Nagpur_Metro"
+    },
+    {
+        "city" : "Noida",
+        "operational_kms" : 29.7,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Noida_Metro"
+    },
+    {
+        "city" : "Kanpur",
+        "operational_kms" : 16,
+        "under_construction_kms" : 15.05,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kanpur_Metro"
+    },
+    {
+        "city" : "Navi Mumbai",
+        "operational_kms" : 11.1,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Navi_Mumbai_Metro"
+    },
+    {
+        "city" : "Gurgaon",
+        "operational_kms" : 12.1,
+        "under_construction_kms" : 28.5,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rapid_Metro_Gurgaon"
+    },
+    {
+        "city" : "Meerut",
+        "operational_kms" : 23.6,
+        "under_construction_kms" : 0,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Meerut_Metro"
+    },
+    {
+        "city" : "Agra",
+        "operational_kms" : 5.2,
+        "under_construction_kms" : 24.47,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Agra_Metro"
+    },
+    {
+        "city" : "Bhopal",
+        "operational_kms" : 6.22,
+        "under_construction_kms" : 21.68,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhoj_Metro"
+    },
+    {
+        "city" : "Indore",
+        "operational_kms" : 6,
+        "under_construction_kms" : 31.23,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Indore_Metro"
+    },
+    {
+        "city" : "Patna",
+        "operational_kms" : 4.3,
+        "under_construction_kms" : 32.91,
+        "planned_kms" : 0,
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Patna_Metro"
     }
 ]
