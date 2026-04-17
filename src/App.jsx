@@ -6,6 +6,7 @@ import { lightTheme, darkTheme } from './theme';
 
 import MetricCard from './components/MetricCard.jsx';
 import AnalyticsCharts from './components/AnalyticsCharts.jsx';
+import InteractiveMap from './components/InteractiveMap.jsx';
 
 import MetroData from './data/metro.json';
 import MetroCitiesData from './data/metro-cities.json';
@@ -32,8 +33,6 @@ class App extends Component {
     const theme = darkMode ? darkTheme : lightTheme;
 
     const allData = [...MetroData, ...MetroCitiesData];
-    const tierOneData = allData.filter(city => city.operational_kms >= 60 || city.city === 'Chennai');
-    const tierTwoData = allData.filter(city => city.operational_kms < 60 && city.city !== 'Chennai');
     const totalOperational = allData.reduce((sum, d) => sum + d.operational_kms, 0);
     const totalUnderConstruction = allData.reduce((sum, d) => sum + d.under_construction_kms, 0);
     const totalPlanned = allData.reduce((sum, d) => sum + d.planned_kms, 0);
@@ -109,14 +108,19 @@ class App extends Component {
               <MetricCard
                 label='Cities Analyzed'
                 value={citiesCount}
-                subtext={`${tierOneData.length} Tier I, ${tierTwoData.length} Tier II`}
+                subtext='Indian metro cities'
                 color='slate'
                 icon='🏙'
               />
             </Box>
 
             {/* Charts Section */}
-            <AnalyticsCharts tierOneData={tierOneData} tierTwoData={tierTwoData} darkMode={darkMode} />
+            <AnalyticsCharts allData={allData} darkMode={darkMode} />
+
+            {/* Interactive Map Section */}
+            <Box sx={{ mt: 8, mb: 8 }}>
+              <InteractiveMap allCities={allData} />
+            </Box>
 
             {/* Data Source Footer */}
             <Paper 
@@ -138,7 +142,7 @@ class App extends Component {
                 </Typography>
                 {' '}
                 <Typography component='span' sx={{ color: 'text.secondary' }}>
-                  Information compiled from Wikipedia and official metro authority sources. This dashboard provides a comprehensive view of India's rapid metro rail expansion across Tier I and Tier II cities.
+                  Information compiled from Wikipedia and official metro authority sources. This dashboard provides a comprehensive view of India's rapid metro rail expansion.
                 </Typography>
               </Typography>
             </Paper>

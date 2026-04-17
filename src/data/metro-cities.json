@@ -1,6 +1,8 @@
 [
     {
         "city" : "Surat",
+        "latitude" : 21.1702,
+        "longitude" : 72.8311,
         "operational_kms" : 0,
         "under_construction_kms" : 41.93,
         "planned_kms" : 0,
@@ -8,6 +10,8 @@
     },
     {
         "city" : "Thane",
+        "latitude" : 19.2183,
+        "longitude" : 72.9781,
         "operational_kms" : 0,
         "under_construction_kms" : 29.5,
         "planned_kms" : 0,
@@ -15,6 +19,8 @@
     },
     {
         "city" : "Bhubaneswar",
+        "latitude" : 20.2961,
+        "longitude" : 85.8245,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 26.024,
@@ -22,6 +28,8 @@
     },
     {
         "city" : "Visakhapatnam",
+        "latitude" : 17.6869,
+        "longitude" : 83.2185,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 76.9,
@@ -29,6 +37,8 @@
     },
     {
         "city" : "Vijayawada",
+        "latitude" : 16.5062,
+        "longitude" : 80.6480,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 75,
@@ -36,6 +46,8 @@
     },
     {
         "city" : "Rajkot",
+        "latitude" : 22.3039,
+        "longitude" : 70.8022,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 38,
@@ -43,6 +55,8 @@
     },
     {
         "city" : "Vadodara",
+        "latitude" : 22.3072,
+        "longitude" : 73.1812,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 40,
@@ -50,6 +64,8 @@
     },
     {
         "city" : "Kozhikode",
+        "latitude" : 11.2588,
+        "longitude" : 75.7804,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 44,
@@ -57,6 +73,8 @@
     },
     {
         "city" : "Thiruvananthapuram",
+        "latitude" : 8.5241,
+        "longitude" : 76.9366,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 42.1,
@@ -64,6 +82,8 @@
     },
     {
         "city" : "Prayagraj",
+        "latitude" : 25.4358,
+        "longitude" : 81.8463,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 44,
@@ -71,6 +91,8 @@
     },
     {
         "city" : "Jammu",
+        "latitude" : 32.7269,
+        "longitude" : 75.5767,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 43.5,
@@ -78,6 +100,8 @@
     },
     {
         "city" : "Srinagar",
+        "latitude" : 34.0837,
+        "longitude" : 74.7973,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 25,
@@ -85,6 +109,8 @@
     },
     {
         "city" : "Gorakhpur",
+        "latitude" : 26.7606,
+        "longitude" : 83.3732,
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 27.41,

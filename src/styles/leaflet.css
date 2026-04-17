@@ -1,0 +1,6 @@
+/* Leaflet CSS - Required for interactive map functionality */
+@import 'leaflet/dist/leaflet.css';
+
+.custom-marker {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
