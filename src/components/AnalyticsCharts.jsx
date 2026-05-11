@@ -305,7 +305,7 @@ function MetricDisplay({ label, value, unit = 'km', color, icon: Icon, compact =
       }}
     >
       {Icon && (
-        <Box sx={{ width: compact ? 32 : 40, height: compact ? 32 : 40, borderRadius: 1.5, bgcolor: resolvedColor, opacity: 0.12, display: 'grid', placeItems: 'center' }}>
+        <Box sx={{ width: compact ? 32 : 40, height: compact ? 32 : 40, borderRadius: 1.5, bgcolor: resolvedColor, opacity: 1, display: 'grid', placeItems: 'center' }}>
           <Icon sx={{ fontSize: compact ? 16 : 20, color: resolvedColor }} />
         </Box>
       )}
