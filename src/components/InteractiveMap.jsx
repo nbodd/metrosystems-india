@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Box, Chip, Paper, Typography, Tooltip, IconButton } from '@mui/material';
 import { MapContainer, TileLayer, GeoJSON, CircleMarker, Popup, ZoomControl } from 'react-leaflet';
 import { useTheme } from '@mui/material/styles';
@@ -12,62 +12,53 @@ import {
   LocationOnRounded,
   DirectionsRailwayRounded
 } from '@mui/icons-material';
+import { DEFAULT_STATUS, METRO_STATUS } from '../constants/metroStatus.js';
+import { getCityPrimaryStatus, getCityTotalKms, getStatusCounts, hasStatusKms } from '../utils/metroData.js';
 
-const markerColor = (city) => {
-  if (city.operational_kms > 0 && city.under_construction_kms === 0 && city.planned_kms === 0) {
-    return { fill: '#0f766e', border: '#065f46' };
-  }
-  if (city.under_construction_kms > 0) {
-    return { fill: '#b45309', border: '#92400e' };
-  }
-  if (city.planned_kms > 0) {
-    return { fill: '#0369a1', border: '#075985' };
-  }
-  return { fill: '#64748b', border: '#475569' };
+const ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+const getMarkerColors = (city, activeFilter) => {
+  const status = METRO_STATUS[activeFilter] ? activeFilter : getCityPrimaryStatus(city);
+  const config = METRO_STATUS[status] || DEFAULT_STATUS;
+  return { fill: config.color, border: config.borderColor };
 };
 
-const statusIcons = {
-  operational: CheckCircleRounded,
-  underConstruction: WarningRounded,
-  planned: ConstructionRounded,
-};
-
-const statusLabels = {
-  operational: 'Operational',
-  underConstruction: 'Under Construction',
-  planned: 'Planned',
-};
-
-const statusColors = {
-  operational: '#0f766e',
-  underConstruction: '#b45309',
-  planned: '#0369a1',
-};
-
-function StatusChip({ status, count, size = 'small' }) {
-  const Icon = statusIcons[status] || DirectionsRailwayRounded;
-  const label = statusLabels[status] || status;
-  const color = statusColors[status] || '#64748b';
+function StatusChip({ status, count, selected, onClick, size = 'small' }) {
+  const config = METRO_STATUS[status] || DEFAULT_STATUS;
+  const Icon = config.icon || DirectionsRailwayRounded;
+  const label = config.label || status;
+  const color = config.color;
 
   return (
     <Chip
-      icon={<Icon sx={{ color, fontSize: 14 }} />}
+      icon={<Icon sx={{ color: selected ? '#ffffff' : color, fontSize: 15 }} />}
       label={`${label} ${count}`}
       size={size}
-      variant='outlined'
+      variant={selected ? 'filled' : 'outlined'}
+      clickable
+      onClick={onClick}
       sx={{
-        borderColor: color,
-        color: color,
-        fontWeight: 600,
+        border: '1px solid',
+        borderColor: selected ? color : `${color}66`,
+        color: selected ? '#ffffff' : color,
+        fontWeight: 700,
         fontSize: '0.75rem',
-        height: 28,
+        height: 30,
         borderRadius: 999,
+        bgcolor: selected ? color : 'transparent',
         backgroundColor: (theme) => theme.palette.mode === 'dark'
-          ? 'rgba(255, 255, 255, 0.08)'
-          : 'rgba(0, 0, 0, 0.04)',
+          ? (selected ? color : 'rgba(255, 255, 255, 0.08)')
+          : (selected ? color : 'rgba(255, 255, 255, 0.72)'),
+        '&:hover': {
+          bgcolor: selected ? color : `${color}14`,
+          borderColor: color,
+        },
         '& .MuiChip-icon': {
-          marginLeft: 0,
-          marginRight: 0.5,
+          marginLeft: '8px',
+          marginRight: '-2px',
+        },
+        '& .MuiChip-label': {
+          px: 1.25,
         },
       }}
     />
@@ -76,7 +67,7 @@ function StatusChip({ status, count, size = 'small' }) {
 
 function MapPopup({ city }) {
   const theme = useTheme();
-  const total = city.operational_kms + city.under_construction_kms + city.planned_kms;
+  const total = getCityTotalKms(city);
 
   return (
     <Paper
@@ -179,32 +170,13 @@ function MapPopup({ city }) {
 export default function InteractiveMap({ allCities = [] }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
+  const [statusFilter, setStatusFilter] = useState('operational');
 
-  const cityCounts = useMemo(
-    () => ({
-      operational: allCities.filter((city) => city.operational_kms > 0 && city.under_construction_kms === 0 && city.planned_kms === 0).length,
-      underConstruction: allCities.filter((city) => city.under_construction_kms > 0).length,
-      planned: allCities.filter((city) => city.planned_kms > 0 && city.operational_kms === 0).length,
-      total: allCities.length,
-    }),
-    [allCities]
-  );
+  const cityCounts = useMemo(() => getStatusCounts(allCities), [allCities]);
 
-  // Custom zoom control styling
-  const customZoomControl = useMemo(() => {
-    return {
-      position: 'topright',
-      zoomInText: '+',
-      zoomOutText: '-',
-      zoomInTitle: 'Zoom in',
-      zoomOutTitle: 'Zoom out',
-    };
-  }, []);
-
-  // Custom attribution control
-  const customAttribution = useMemo(() => {
-    return '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-  }, []);
+  const filteredCities = useMemo(() => {
+    return allCities.filter((city) => hasStatusKms(city, statusFilter));
+  }, [allCities, statusFilter]);
 
   return (
     <Paper
@@ -220,17 +192,32 @@ export default function InteractiveMap({ allCities = [] }) {
       }}
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'center' }, gap: 1.5, mb: 2.25, flexWrap: 'wrap' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, minWidth: 0 }}>
           <DirectionsRailwayRounded color='primary' fontSize='large' />
           <Typography variant='h2' sx={{ fontWeight: 700 }}>
             Interactive Metro Map of India
           </Typography>
         </Box>
         
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          <StatusChip status='operational' count={cityCounts.operational} />
-          <StatusChip status='underConstruction' count={cityCounts.underConstruction} />
-          <StatusChip status='planned' count={cityCounts.planned} />
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'flex-end' } }}>
+          <StatusChip
+            status='operational'
+            count={cityCounts.operational}
+            selected={statusFilter === 'operational'}
+            onClick={() => setStatusFilter('operational')}
+          />
+          <StatusChip
+            status='underConstruction'
+            count={cityCounts.underConstruction}
+            selected={statusFilter === 'underConstruction'}
+            onClick={() => setStatusFilter('underConstruction')}
+          />
+          <StatusChip
+            status='planned'
+            count={cityCounts.planned}
+            selected={statusFilter === 'planned'}
+            onClick={() => setStatusFilter('planned')}
+          />
           <Tooltip title='Total cities with metro systems'>
             <Chip
               label={`Total ${cityCounts.total}`}
@@ -274,7 +261,7 @@ export default function InteractiveMap({ allCities = [] }) {
           {/* Custom tile layer */}
           <TileLayer
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-            attribution={customAttribution}
+            attribution={ATTRIBUTION}
           />
           
           {/* India outline */}
@@ -290,9 +277,9 @@ export default function InteractiveMap({ allCities = [] }) {
           />
           
           {/* City markers */}
-          {allCities.map((city) => {
-            const colors = markerColor(city);
-            const total = city.operational_kms + city.under_construction_kms + city.planned_kms;
+          {filteredCities.map((city) => {
+            const colors = getMarkerColors(city, statusFilter);
+            const total = getCityTotalKms(city);
             const size = Math.max(6, Math.min(14, 6 + Math.sqrt(total / 10)));
             
             return (
@@ -326,8 +313,8 @@ export default function InteractiveMap({ allCities = [] }) {
         <Box 
           sx={{
             position: 'absolute',
-            right: 16,
-            bottom: 16,
+            right: { xs: 10, sm: 16 },
+            bottom: { xs: 10, sm: 16 },
             zIndex: 500,
             display: 'grid',
             gap: 1,
@@ -338,6 +325,7 @@ export default function InteractiveMap({ allCities = [] }) {
             bgcolor: isDark ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(14px) saturate(130%)',
             boxShadow: theme.customShadows.glassSm,
+            maxWidth: { xs: 178, sm: 240 },
           }}
         >
           <Typography variant='caption' sx={{ 
@@ -354,21 +342,21 @@ export default function InteractiveMap({ allCities = [] }) {
           </Typography>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#0f766e', boxShadow: '0 0 0 2px rgba(15, 118, 110, 0.3)' }} />
+            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: METRO_STATUS.operational.color, boxShadow: '0 0 0 2px rgba(15, 118, 110, 0.3)' }} />
             <Typography variant='body2' sx={{ color: 'text.primary', fontWeight: 500 }}>
               Operational
             </Typography>
           </Box>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#b45309', boxShadow: '0 0 0 2px rgba(180, 83, 9, 0.3)' }} />
+            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: METRO_STATUS.underConstruction.color, boxShadow: '0 0 0 2px rgba(180, 83, 9, 0.3)' }} />
             <Typography variant='body2' sx={{ color: 'text.primary', fontWeight: 500 }}>
               Under Construction
             </Typography>
           </Box>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#0369a1', boxShadow: '0 0 0 2px rgba(3, 105, 161, 0.3)' }} />
+            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: METRO_STATUS.planned.color, boxShadow: '0 0 0 2px rgba(3, 105, 161, 0.3)' }} />
             <Typography variant='body2' sx={{ color: 'text.primary', fontWeight: 500 }}>
               Planned
             </Typography>
@@ -380,7 +368,8 @@ export default function InteractiveMap({ allCities = [] }) {
           sx={{
             position: 'absolute',
             left: 16,
-            bottom: 16,
+            bottom: { xs: 'auto', sm: 16 },
+            top: { xs: 10, sm: 'auto' },
             zIndex: 500,
             borderRadius: 1,
             p: 1,

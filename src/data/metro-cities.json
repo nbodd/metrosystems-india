@@ -6,7 +6,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 41.93,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Surat_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Surat_Metro",
+        "official_link" : "https://www.gujaratmetrorail.com/"
     },
     {
         "city" : "Thane",
@@ -15,7 +16,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 29.5,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thane_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thane_Metro",
+        "official_link" : "https://mmrda.maharashtra.gov.in/"
     },
     {
         "city" : "Bhubaneswar",
@@ -24,7 +26,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 26.024,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhubaneswar_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhubaneswar_Metro",
+        "official_link" : "https://www.bhubaneswarmetro.in/"
     },
     {
         "city" : "Visakhapatnam",
@@ -33,7 +36,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 76.9,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Visakhapatnam_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Visakhapatnam_Metro",
+        "official_link" : "https://amrc.ap.gov.in/visakhapatnam-metro.php"
     },
     {
         "city" : "Vijayawada",
@@ -42,7 +46,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 75,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vijayawada_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vijayawada_Metro",
+        "official_link" : "https://amrc.ap.gov.in/vijayawada-metro.php"
     },
     {
         "city" : "Rajkot",
@@ -51,7 +56,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 38,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rajkot_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rajkot_Metro",
+        "official_link" : "https://www.gujaratmetrorail.com/"
     },
     {
         "city" : "Vadodara",
@@ -60,7 +66,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 40,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vadodara_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Vadodara_Metro",
+        "official_link" : "https://www.gujaratmetrorail.com/"
     },
     {
         "city" : "Kozhikode",
@@ -69,7 +76,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 44,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kozhikode_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kozhikode_Metro",
+        "official_link" : "https://kochimetro.org/"
     },
     {
         "city" : "Thiruvananthapuram",
@@ -78,7 +86,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 42.1,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thiruvananthapuram_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Thiruvananthapuram_Metro",
+        "official_link" : "https://kochimetro.org/"
     },
     {
         "city" : "Prayagraj",
@@ -87,7 +96,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 44,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Prayagraj_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Prayagraj_Metro",
+        "official_link" : "https://upmetrorail.com/"
     },
     {
         "city" : "Jammu",
@@ -96,7 +106,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 43.5,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jammu_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jammu_Metro",
+        "official_link" : "https://www.jkhudd.gov.in/"
     },
     {
         "city" : "Srinagar",
@@ -105,7 +116,8 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 25,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Srinagar_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Srinagar_Metro",
+        "official_link" : "https://www.jkhudd.gov.in/"
     },
     {
         "city" : "Gorakhpur",
@@ -114,6 +126,7 @@
         "operational_kms" : 0,
         "under_construction_kms" : 0,
         "planned_kms" : 27.41,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Gorakhpur_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Gorakhpur_Metro",
+        "official_link" : "https://upmetrorail.com/"
     }
 ]

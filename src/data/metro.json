@@ -6,7 +6,8 @@
         "operational_kms" : 374.4,
         "under_construction_kms" : 65.2,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Delhi_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Delhi_Metro",
+        "official_link" : "https://www.delhimetrorail.com/"
     },
     {
         "city" : "Mumbai",
@@ -15,7 +16,8 @@
         "operational_kms" : 90.95,
         "under_construction_kms" : 132.45,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Mumbai_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Mumbai_Metro",
+        "official_link" : "https://www.mmmocl.co.in/"
     },
     {
         "city" : "Bengaluru",
@@ -24,7 +26,8 @@
         "operational_kms" : 96.1,
         "under_construction_kms" : 79.44,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Namma_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Namma_Metro",
+        "official_link" : "https://english.bmrc.co.in/"
     },
     {
         "city" : "Hyderabad",
@@ -33,7 +36,8 @@
         "operational_kms" : 67,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Hyderabad_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Hyderabad_Metro",
+        "official_link" : "https://www.ltmetro.com/"
     },
     {
         "city" : "Chennai",
@@ -42,7 +46,8 @@
         "operational_kms" : 54.1,
         "under_construction_kms" : 118.9,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Chennai_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Chennai_Metro",
+        "official_link" : "https://chennaimetrorail.org/"
     },
     {
         "city" : "Kolkata",
@@ -51,7 +56,8 @@
         "operational_kms" : 73.42,
         "under_construction_kms" : 30.8,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kolkata_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kolkata_Metro",
+        "official_link" : "https://mtp.indianrailways.gov.in/"
     },
     {
         "city" : "Ahmedabad",
@@ -60,7 +66,8 @@
         "operational_kms" : 67.56,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Ahmedabad_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Ahmedabad_Metro",
+        "official_link" : "https://www.gujaratmetrorail.com/"
     },
     {
         "city" : "Pune",
@@ -69,7 +76,8 @@
         "operational_kms" : 31.25,
         "under_construction_kms" : 79.56,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Pune_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Pune_Metro",
+        "official_link" : "https://www.punemetrorail.org/"
     },
     {
         "city" : "Jaipur",
@@ -78,7 +86,8 @@
         "operational_kms" : 11.98,
         "under_construction_kms" : 2.85,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jaipur_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Jaipur_Metro",
+        "official_link" : "https://transport.rajasthan.gov.in/jmrc"
     },
     {
         "city" : "Lucknow",
@@ -87,7 +96,8 @@
         "operational_kms" : 22.9,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Lucknow_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Lucknow_Metro",
+        "official_link" : "https://upmetrorail.com/"
     },
     {
         "city" : "Kochi",
@@ -96,7 +106,8 @@
         "operational_kms" : 27.96,
         "under_construction_kms" : 11.2,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kochi_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kochi_Metro",
+        "official_link" : "https://kochimetro.org/"
     },
     {
         "city" : "Nagpur",
@@ -105,7 +116,8 @@
         "operational_kms" : 38.22,
         "under_construction_kms" : 43,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Nagpur_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Nagpur_Metro",
+        "official_link" : "https://www.metrorailnagpur.com/"
     },
     {
         "city" : "Noida",
@@ -114,7 +126,8 @@
         "operational_kms" : 29.7,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Noida_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Noida_Metro",
+        "official_link" : "https://nmrcnoida.com/"
     },
     {
         "city" : "Kanpur",
@@ -123,7 +136,8 @@
         "operational_kms" : 16,
         "under_construction_kms" : 15.05,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kanpur_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Kanpur_Metro",
+        "official_link" : "https://upmetrorail.com/"
     },
     {
         "city" : "Navi Mumbai",
@@ -132,7 +146,8 @@
         "operational_kms" : 11.1,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Navi_Mumbai_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Navi_Mumbai_Metro",
+        "official_link" : "https://cidco.maharashtra.gov.in/navi-mumbai-metro"
     },
     {
         "city" : "Gurgaon",
@@ -141,7 +156,8 @@
         "operational_kms" : 12.1,
         "under_construction_kms" : 28.5,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rapid_Metro_Gurgaon"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Rapid_Metro_Gurgaon",
+        "official_link" : "https://www.hmrtc.org.in/"
     },
     {
         "city" : "Meerut",
@@ -150,7 +166,8 @@
         "operational_kms" : 23.6,
         "under_construction_kms" : 0,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Meerut_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Meerut_Metro",
+        "official_link" : "https://ncrtc.in/"
     },
     {
         "city" : "Agra",
@@ -159,7 +176,8 @@
         "operational_kms" : 5.2,
         "under_construction_kms" : 24.47,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Agra_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Agra_Metro",
+        "official_link" : "https://agra.upmetrorail.com/"
     },
     {
         "city" : "Bhopal",
@@ -168,7 +186,8 @@
         "operational_kms" : 6.22,
         "under_construction_kms" : 21.68,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhoj_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhoj_Metro",
+        "official_link" : "https://mpmetrorail.com/"
     },
     {
         "city" : "Indore",
@@ -177,7 +196,8 @@
         "operational_kms" : 6,
         "under_construction_kms" : 31.23,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Indore_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Indore_Metro",
+        "official_link" : "https://mpmetrorail.com/"
     },
     {
         "city" : "Patna",
@@ -186,6 +206,7 @@
         "operational_kms" : 4.3,
         "under_construction_kms" : 32.91,
         "planned_kms" : 0,
-        "wikipedia_link" : "https://en.wikipedia.org/wiki/Patna_Metro"
+        "wikipedia_link" : "https://en.wikipedia.org/wiki/Patna_Metro",
+        "official_link" : "https://pmrconline.in/"
     }
 ]

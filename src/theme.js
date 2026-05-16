@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+const appFontFamily = ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(',');
+
 // Premium color palette for transit operations dashboard
 const premiumColors = {
   // Primary brand colors - Metro Blue
@@ -102,7 +104,7 @@ const premiumColors = {
 
 // Enhanced typography system
 const typography = {
-  fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+  fontFamily: appFontFamily,
   htmlFontSize: 16,
   fontSize: 14,
   fontWeightLight: 300,
@@ -111,23 +113,23 @@ const typography = {
   fontWeightSemiBold: 600,
   fontWeightBold: 700,
   h1: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '2.25rem',
     fontWeight: 700,
     lineHeight: 1.22,
-    letterSpacing: '-0.015em',
+    letterSpacing: 0,
     color: 'text.primary',
   },
   h2: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1.5rem',
     fontWeight: 700,
     lineHeight: 1.33,
-    letterSpacing: '-0.00833em',
+    letterSpacing: 0,
     color: 'text.primary',
   },
   h3: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1.25rem',
     fontWeight: 600,
     lineHeight: 1.4,
@@ -135,7 +137,7 @@ const typography = {
     color: 'text.primary',
   },
   h4: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1.125rem',
     fontWeight: 600,
     lineHeight: 1.44,
@@ -143,7 +145,7 @@ const typography = {
     color: 'text.primary',
   },
   h5: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1rem',
     fontWeight: 600,
     lineHeight: 1.5,
@@ -151,7 +153,7 @@ const typography = {
     color: 'text.primary',
   },
   h6: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.9375rem',
     fontWeight: 600,
     lineHeight: 1.57,
@@ -159,7 +161,7 @@ const typography = {
     color: 'text.primary',
   },
   subtitle1: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1rem',
     fontWeight: 500,
     lineHeight: 1.6,
@@ -167,7 +169,7 @@ const typography = {
     color: 'text.primary',
   },
   subtitle2: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.875rem',
     fontWeight: 600,
     lineHeight: 1.57,
@@ -175,7 +177,7 @@ const typography = {
     color: 'text.primary',
   },
   body1: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '1rem',
     fontWeight: 400,
     lineHeight: 1.6,
@@ -183,7 +185,7 @@ const typography = {
     color: 'text.primary',
   },
   body2: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.875rem',
     fontWeight: 400,
     lineHeight: 1.6,
@@ -191,7 +193,7 @@ const typography = {
     color: 'text.secondary',
   },
   button: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.875rem',
     fontWeight: 600,
     lineHeight: 1.75,
@@ -199,7 +201,7 @@ const typography = {
     textTransform: 'none',
   },
   caption: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.75rem',
     fontWeight: 500,
     lineHeight: 1.66,
@@ -208,7 +210,7 @@ const typography = {
     textTransform: 'uppercase',
   },
   overline: {
-    fontFamily: ['Inter', 'SF Pro Display', 'Manrope', 'Segoe UI', 'Roboto', 'sans-serif'].join(','),
+    fontFamily: appFontFamily,
     fontSize: '0.75rem',
     fontWeight: 600,
     lineHeight: 2.66,
@@ -220,11 +222,11 @@ const typography = {
 
 // Enhanced shape and spacing
 const shape = {
-  borderRadius: 16,
-  borderRadiusSm: 12,
+  borderRadius: 8,
+  borderRadiusSm: 8,
   borderRadiusXs: 8,
-  borderRadiusLg: 20,
-  borderRadiusXl: 24,
+  borderRadiusLg: 8,
+  borderRadiusXl: 8,
 };
 
 // Shadows for depth and elevation
@@ -321,20 +323,13 @@ const sharedThemeOptions = {
         },
       },
     },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundImage: 'none',
-          borderRadius: shape.borderRadius,
-        },
-      },
-    },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: shape.borderRadius,
           border: '1px solid',
           borderColor: 'divider',
+          backdropFilter: 'blur(18px) saturate(145%)',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           '&:hover': {
             boxShadow: customShadows.cardHover,
@@ -377,15 +372,22 @@ const sharedThemeOptions = {
           letterSpacing: 0.25,
           fontSize: '0.75rem',
           height: 28,
-          padding: '0 12px',
+          padding: 0,
+          gap: 4,
         },
         sizeSmall: {
           height: 24,
           fontSize: '0.6875rem',
-          padding: '0 8px',
+          padding: 0,
+        },
+        icon: {
+          marginLeft: 8,
+          marginRight: -2,
+          flex: '0 0 auto',
         },
         label: {
-          padding: 0,
+          paddingLeft: 8,
+          paddingRight: 10,
         },
       },
     },
@@ -399,9 +401,9 @@ const sharedThemeOptions = {
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         },
         contained: {
-          boxShadow: customShadows.card,
+          boxShadow: '0 10px 22px rgba(37, 99, 235, 0.18)',
           '&:hover': {
-            boxShadow: customShadows.cardHover,
+            boxShadow: '0 14px 28px rgba(37, 99, 235, 0.24)',
           },
         },
         outlined: {
@@ -546,6 +548,7 @@ const sharedThemeOptions = {
       styleOverrides: {
         root: {
           backgroundImage: 'none',
+          borderRadius: shape.borderRadius,
         },
         elevation0: {
           boxShadow: 'none',
@@ -758,15 +761,16 @@ const lightTheme = createTheme({
       contrastText: '#ffffff',
     },
     background: {
-      default: '#f7fafc',
-      paper: '#ffffff',
+      default: '#eef4f7',
+      paper: 'rgba(255, 255, 255, 0.82)',
     },
     text: {
       primary: '#1e293b',
       secondary: '#64748b',
+      tertiary: '#94a3b8',
       disabled: '#94a3b8',
     },
-    divider: 'rgba(30, 41, 59, 0.15)',
+    divider: 'rgba(30, 41, 59, 0.12)',
     action: {
       active: 'rgba(30, 41, 59, 0.54)',
       hover: 'rgba(30, 41, 59, 0.08)',
@@ -825,12 +829,13 @@ const darkTheme = createTheme({
       contrastText: '#ffffff',
     },
     background: {
-      default: '#0f172a',
-      paper: '#1e293b',
+      default: '#07111f',
+      paper: 'rgba(15, 23, 42, 0.82)',
     },
     text: {
       primary: '#f1f5f9',
       secondary: '#94a3b8',
+      tertiary: '#64748b',
       disabled: '#64748b',
     },
     divider: 'rgba(148, 163, 184, 0.25)',

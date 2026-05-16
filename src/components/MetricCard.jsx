@@ -162,6 +162,7 @@ export default function MetricCard({
         backdropFilter: 'blur(16px) saturate(130%)',
         borderColor: colors.border,
         p: { xs: 2, sm: 2.5 },
+        minHeight: 196,
         height: '100%',
         boxShadow: isDark ? '0 12px 32px rgba(0, 0, 0, 0.26)' : '0 12px 28px rgba(20, 38, 63, 0.08)',
         border: '1px solid',
@@ -188,7 +189,7 @@ export default function MetricCard({
       }}
     >
       <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, position: 'relative' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 2.5 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 2 }}>
           <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography variant='caption' sx={{ 
               display: 'block', 
@@ -202,10 +203,10 @@ export default function MetricCard({
               {label}
             </Typography>
             
-            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5, mb: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5, mb: 1, minWidth: 0, flexWrap: 'wrap' }}>
               <Typography
                 sx={{
-                  fontSize: 'clamp(2rem, 5vw, 3.2rem)',
+                  fontSize: 'clamp(2rem, 4vw, 2.9rem)',
                   lineHeight: 1,
                   fontWeight: 700,
                   color: colors.value,
