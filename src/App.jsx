@@ -97,7 +97,7 @@ function AppFooter() {
         Data compiled from publicly available metro rail sources for analytical visualization.
       </Typography>
       <Typography variant='caption' sx={{ mt: 0.5, display: 'block' }}>
-        Updated April 2026 | v2.0.0
+        Updated November 2026 | v2.0.0
       </Typography>
     </Box>
   );

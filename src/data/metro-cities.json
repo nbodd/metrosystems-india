@@ -24,8 +24,8 @@
         "latitude" : 20.2961,
         "longitude" : 85.8245,
         "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 26.024,
+        "under_construction_kms" : 26.024,
+        "planned_kms" : 0,
         "wikipedia_link" : "https://en.wikipedia.org/wiki/Bhubaneswar_Metro",
         "official_link" : "https://www.bhubaneswarmetro.in/"
     },
@@ -34,8 +34,8 @@
         "latitude" : 17.6869,
         "longitude" : 83.2185,
         "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 76.9,
+        "under_construction_kms" : 76.9,
+        "planned_kms" : 0,
         "wikipedia_link" : "https://en.wikipedia.org/wiki/Visakhapatnam_Metro",
         "official_link" : "https://amrc.ap.gov.in/visakhapatnam-metro.php"
     },
@@ -44,8 +44,8 @@
         "latitude" : 16.5062,
         "longitude" : 80.6480,
         "operational_kms" : 0,
-        "under_construction_kms" : 0,
-        "planned_kms" : 75,
+        "under_construction_kms" : 75,
+        "planned_kms" : 0,
         "wikipedia_link" : "https://en.wikipedia.org/wiki/Vijayawada_Metro",
         "official_link" : "https://amrc.ap.gov.in/vijayawada-metro.php"
     },
